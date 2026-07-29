@@ -17,7 +17,6 @@ if (isset($_POST['login'])) {
     $_SESSION['NAME'] = $row['name'];
     // KALAU BERHASIL MASUK KE DASHBOARD
     header("location:dashboard.php");
-    exit();
   } else {
     // KALAU GAGAL TETAP DI LOGIN
     header("location:signin.php");

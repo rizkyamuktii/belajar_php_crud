@@ -2,9 +2,13 @@
 session_start();
 session_regenerate_id();
 if (!isset($_SESSION['NAME'])) {
-  header("location:signin.php");
-  exit();
+    header("location:index.php");
+    exit();
 }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +19,8 @@ if (!isset($_SESSION['NAME'])) {
     <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     <?php
-  include "inc/css.php";
-  ?>
+    include "inc/css.php";
+    ?>
 
 </head>
 
@@ -24,8 +28,8 @@ if (!isset($_SESSION['NAME'])) {
     <div class="wrapper">
         <!-- Sidebar -->
         <?php
-    include "inc/sidebar.php";
-    ?>
+        include "inc/sidebar.php";
+        ?>
         <!-- End Sidebar -->
 
         <div class="main-panel">
@@ -53,8 +57,8 @@ if (!isset($_SESSION['NAME'])) {
                 </div>
                 <!-- Navbar Header -->
                 <?php
-        include "inc/navbar.php";
-        ?>
+                include "inc/navbar.php";
+                ?>
                 <!-- End Navbar -->
             </div>
 
@@ -171,8 +175,8 @@ if (!isset($_SESSION['NAME'])) {
         <!-- End Custom template -->
     </div>
     <?php
-  include "inc/js.php";
-  ?>
+    include "inc/js.php";
+    ?>
 </body>
 
 </html>

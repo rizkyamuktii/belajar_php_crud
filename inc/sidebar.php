@@ -3,11 +3,8 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
                 <a href="index.html" class="logo">
-                    <img
-                        src="assets/kaiadmin-lite-1.2.0/assets/img/kaiadmin/logo_light.svg"
-                        alt="navbar brand"
-                        class="navbar-brand"
-                        height="20" />
+                    <img src="assets/kaiadmin-lite-1.2.0/assets/img/kaiadmin/logo_light.svg" alt="navbar brand"
+                        class="navbar-brand" height="20" />
                 </a>
                 <div class="nav-toggle">
                     <button class="btn btn-toggle toggle-sidebar">
@@ -27,13 +24,16 @@
             <div class="sidebar-content">
                 <ul class="nav nav-secondary">
                     <li class="nav-item active">
-                        <a
-
-                            href="#dashboard"
-
-                            aria-expanded="false">
+                        <a href="dashboard.php" aria-expanded="false">
                             <i class="fas fa-home"></i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="user.php" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                            <p>User</p>
                         </a>
                     </li>
                     <!-- <li class="nav-section">
