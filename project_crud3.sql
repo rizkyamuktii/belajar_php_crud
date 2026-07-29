@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Jul 2026 pada 10.15
+-- Waktu pembuatan: 29 Jul 2026 pada 10.02
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -24,6 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `website_name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `ig` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `users`
 --
 
@@ -39,11 +57,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Admin', 'admin@gmail.com', '12345678');
+(2, 'Admin', 'admin@gmail.com', '12345678'),
+(4, 'M. Rizkyamukti', 'rizkyamukti@gmail.com', '085782857010'),
+(7, 'gibra parhusip', 'gibran123@gmail.com', '12345678'),
+(8, 'ini ameng', 'creamyhazel@gmail.com', 'hazel123'),
+(9, 'mengskyy', 'creamyhazel@gmail.com', 'mengs123'),
+(10, 'situmorang', 'parhusip@gmail.com', 'bataktimur');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -56,10 +85,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
