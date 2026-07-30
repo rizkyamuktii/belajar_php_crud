@@ -9,7 +9,7 @@ if (!isset($_SESSION['NAME'])) {
 }
 
 //tampilin seumua data dari table user dari urutan terbesar ke terkecil 
-$query = mysqli_query($conn, "SELECT * FROM users ORDER BY id DESC");
+$query = mysqli_query($conn, "SELECT * FROM contacs ORDER BY id DESC");
 $rows = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 // jika parameter delete ada
@@ -76,12 +76,9 @@ if (isset($_GET['delete'])) {
                 <div class="page-inner">
                     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
                         <div>
-                            <h3 class="fw-bold mb-3">User</h3>
+                            <h3 class="fw-bold mb-3">Contact</h3>
                         </div>
-                        <div class="ms-md-auto py-2 py-md-0">
-                            <!-- <a href="#" class="btn btn-label-info btn-round me-2">Manage</a> -->
-                            <a href="create-user.php" class="btn btn-primary btn-round">Create New User</a>
-                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
@@ -93,6 +90,8 @@ if (isset($_GET['delete'])) {
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
+                                                <th>Subject</th>
+                                                <th>Message</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -102,13 +101,15 @@ if (isset($_GET['delete'])) {
                                                     <td><?php echo $index + 1 ?></td>
                                                     <td><?php echo $row['name'] ?></td>
                                                     <td><?php echo $row['email'] ?></td>
+                                                    <td><?php echo $row['subject'] ?></td>
+                                                    <td><?php echo $row['message'] ?></td>
                                                     <td>
                                                         <a class="btn btn-success btn-sm"
-                                                            href="create-user.php?edit=<?php echo $row['id'] ?>">Edit</a>
+                                                            href="create-user.php?edit=<?php echo $row['id'] ?>">Detail</a>
 
                                                         <a onclick="return confirm('Are you sure wanna delete this data?')"
                                                             class="btn btn-danger btn-sm"
-                                                            href="user.php?delete=<?php echo $row['id'] ?>">Delete</a>
+                                                            href="contact.php?delete=<?php echo $row['id'] ?>">Delete</a>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>

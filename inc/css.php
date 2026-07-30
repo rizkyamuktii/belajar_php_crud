@@ -1,7 +1,4 @@
-<link
-    rel="icon"
-    href="assets/kaiadmin-lite-1.2.0/assets/img/kaiadmin/favicon.ico"
-    type="image/x-icon" />
+<link rel="icon" href="assets/kaiadmin-lite-1.2.0/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
 <!-- Fonts and icons -->
 <script src="assets/kaiadmin-lite-1.2.0/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -17,7 +14,7 @@
                 "Font Awesome 5 Brands",
                 "simple-line-icons",
             ],
-            urls: ["assets/css/fonts.min.css"],
+            urls: ["assets/kaiadmin-lite-1.2.0/assets/css/fonts.min.css"],
         },
         active: function() {
             sessionStorage.fonts = true;
