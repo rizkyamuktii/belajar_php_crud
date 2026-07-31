@@ -92,9 +92,15 @@ if (isset($_GET['delete'])) {
                                             <tr>
                                                 <th>No</th>
                                                 <th>Title</th>
-                                                <th>Image</th>
                                                 <th>Subtitle</th>
                                                 <th>Description</th>
+                                                <th>button 1 text </th>
+                                                <th>button 1 link </th>
+                                                <th>button 2 text </th>
+                                                <th>button 2 link </th>
+                                                <th>Image</th>
+
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
