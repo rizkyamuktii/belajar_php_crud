@@ -16,11 +16,19 @@ $row = mysqli_fetch_assoc($query);
 if (isset($_POST['save'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $subtitle = mysqli_real_escape_string($conn, $_POST['subtitle']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
     $button1_text = mysqli_real_escape_string($conn, $_POST['button1_text']);
     $button1_link = mysqli_real_escape_string($conn, $_POST['button1_link']);
     $button2_text = mysqli_real_escape_string($conn, $_POST['button2_text']);
     $button2_link = mysqli_real_escape_string($conn, $_POST['button2_link']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $image = $_FILES['image'];
+
+    if ($image['eror'] == 0) {
+        $filename = basename($image['name']);
+        $filepath = "assets/img/" . $filename;
+        move_uploaded_file($image['tmp_name'], $filepath);
+    }
+
 
     // File upload handling
     $image = isset($row['image']) ? $row['image'] : '';
@@ -51,8 +59,8 @@ if (isset($_POST['save'])) {
         exit();
     } else {
         // Query insert
-        $insert = mysqli_query($conn, "INSERT INTO sliders (title, subtitle, button1_text, button1_link, button2_text, button2_link, image, description) 
-            VALUES ('$title', '$subtitle', '$button1_text', '$button1_link', '$button2_text', '$button2_link', '$image', '$description')");
+        $insert = mysqli_query($conn, "INSERT INTO sliders (title, subtitle,description, button1_text, button1_link, button2_text, image, button2_link) 
+            VALUES ('$title', '$subtitle','$description', '$button1_text', '$button1_link', '$button2_text','$image', '$button2_link')");
         header("location:slider.php?tambah=berhasil");
         exit();
     }
