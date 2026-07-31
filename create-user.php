@@ -16,14 +16,16 @@ $row = mysqli_fetch_assoc($query);
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'] ? $_POST['password'] : $row['password']; // Jika password tidak diisi, gunakan password lama
+    $password = $_POST['password'] ? $_POST['password'] : $row['password'];
+    $pass = sha1($password);
+    // Jika password tidak diisi, gunakan password lama
     // Masukkan ke dalam users sebutkan kolom di table user nilainya di ambil dari user nginput
     if ($id) {
         // Query update
-        $edit = mysqli_query($conn, "UPDATE users SET name='$name', email='$email', password='$password' WHERE id='$id'");
+        $edit = mysqli_query($conn, "UPDATE users SET name='$name', email='$email', password='$pass' WHERE id='$id'");
         header("location:user.php?update=berhasil");
     } else {
-        $insert = mysqli_query($conn, "INSERT INTO users(name, email, password) VALUES('$name', '$email', '$password')");
+        $insert = mysqli_query($conn, "INSERT INTO users(name, email, password) VALUES('$name', '$email', '$pass')");
         header("location:user.php?tambah=berhasil");
     }
 }

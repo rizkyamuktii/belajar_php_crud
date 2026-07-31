@@ -5,7 +5,7 @@ session_regenerate_id();
 
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
-  $pass = $_POST['password'];
+  $pass = sha1($_POST['password']);
 
   $login = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
 
@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
     header("location:dashboard.php");
   } else {
     // KALAU GAGAL TETAP DI LOGIN
-    header("location:signin.php");
+    header("location:index.php");
     exit();
   }
 }
